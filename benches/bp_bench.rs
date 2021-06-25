@@ -9,6 +9,7 @@ use curve25519_dalek_ng::scalar::Scalar;
 use merlin::Transcript;
 
 const BIT_SIZE: usize = 64;
+const CAPACITY: usize = 128; // Use this to set the size of the table. Minimum will = BIT_SIZE
 
 // const SINGLE_PROOF_BYTE_NUM: usize = 672;
 // const PROOF_SIZE_BYTE_NUM: usize = 8;
@@ -40,7 +41,8 @@ pub fn bp_proof_gen(c: &mut Criterion) {
 /// Bulletproofs proof generation benchmark for a small value.
 pub fn bp_proof_gen_small_value(c: &mut Criterion) {
     let pc_gens = PedersenGens::default();
-    let bp_gens = BulletproofGens::new(BIT_SIZE, 1);
+    let mut bp_gens = BulletproofGens::new(BIT_SIZE, 1);
+    bp_gens.increase_capacity(CAPACITY); // Do the same in other function.
     let mut transcript = Transcript::new(&[]);
     let secret: u64 = 1u64;
     let blinding: Scalar = Scalar::from(11u64);

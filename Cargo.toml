@@ -34,6 +34,7 @@ sha2 = "0.9.5"
 sha3 = "0.9.1"
 smtree = "0.1.1"
 thiserror = "1.0.24"
+bulletproofs = { path = "../bulletproofs" }
 
 [dev-dependencies.blake3]
 version = "0.3.7"
@@ -41,6 +42,6 @@ features = ["rayon"]
 
 [dev-dependencies]
 criterion = "0.3.4"
-bulletproofs = "4.0.0"
+#bulletproofs = "4.0.0"
 curve25519-dalek-ng = "4.0.1"
 merlin = "3.0.0"
