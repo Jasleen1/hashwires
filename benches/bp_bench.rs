@@ -5,7 +5,7 @@
 
 use bulletproofs::{BulletproofGens, PedersenGens, RangeProof};
 use criterion::{criterion_group, criterion_main, Criterion};
-use curve25519_dalek_ng::scalar::Scalar;
+use curve25519_dalek::scalar::Scalar;
 use merlin::Transcript;
 
 const BIT_SIZE: usize = 64;
